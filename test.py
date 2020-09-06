@@ -36,7 +36,7 @@ if __name__ == '__main__':
  try:
  
   while True:
-   for j in range(255):
+   for j in range(155):
     for i in range(LED_COUNT):
      strip.setPixelColor(i, Color(j, j, j))
     strip.show()

@@ -32,16 +32,16 @@ if __name__ == '__main__':
  if not args.clear:
   print('Use "-c" argument to clear LEDs on exit')
 
-#Initialize Display Controller 
-displayController = DisplayController(strip, LED_HEIGHT, LED_WIDTH)
+ #Initialize Display Controller 
+ displayController = DisplayController(strip, LED_HEIGHT, LED_WIDTH)
 
-# Initialize Plugins
-plugins = []
-plugins.append('Plugin1')
-plugins.append('Plugin2')
+ # Initialize Plugins
+ plugins = []
+ plugins.append('Plugin1')
+ plugins.append('Plugin2')
 
-#Logo 8x8
-#Content 8x24
+ #Logo 8x8
+ #Content 8x24
 
  try:
   while True:

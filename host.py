@@ -47,7 +47,10 @@ if __name__ == '__main__':
 
  try:
   icon_pil = Image.open('plugins/youtube/icon.png')
+  newsize = (8, 8)
+  icon_pil = icon_pil.resize(newsize) 
   icon_np = np.array(icon_pil)
+ 
   while True:
    displayController.setIcon(icon_np)
    displayController.updateScreen()

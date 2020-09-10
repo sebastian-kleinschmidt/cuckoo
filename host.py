@@ -5,7 +5,8 @@
 import time
 from neopixel import *
 import argparse
-import DisplayController
+import DisplayController as dc
+from PIL import Image
  
 # LED strip configuration:
 LED_HEIGHT = 8
@@ -33,7 +34,7 @@ if __name__ == '__main__':
   print('Use "-c" argument to clear LEDs on exit')
 
  #Initialize Display Controller 
- displayController = DisplayController(strip, LED_HEIGHT, LED_WIDTH)
+ displayController = dc.DisplayController(strip, LED_HEIGHT, LED_WIDTH)
 
  # Initialize Plugins
  plugins = []
@@ -44,11 +45,14 @@ if __name__ == '__main__':
  #Content 8x24
 
  try:
+  icon = Image.open('kolala.jpeg')
   while True:
-   for j in range(155):
-    for i in range(LED_COUNT):
-     strip.setPixelColor(i, Color(i, i, i))
-    strip.show()
+   dp.setIcon(icon)
+   dp.updateScreen()
+   #for j in range(155):
+   # for i in range(LED_COUNT):
+   #  strip.setPixelColor(i, Color(i, i, i))
+   # strip.show()
 #    time.sleep(100)
  
  except KeyboardInterrupt:

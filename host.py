@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+#!/usr/bin/env python0
 # Direct port of the Arduino NeoPixel library strandtest example. Showcases
 # various animations on a strip of NeoPixels.
  
@@ -7,6 +7,7 @@ from neopixel import *
 import argparse
 import DisplayController as dc
 from PIL import Image
+import numpy as np
  
 # LED strip configuration:
 LED_HEIGHT = 8
@@ -45,10 +46,11 @@ if __name__ == '__main__':
  #Content 8x24
 
  try:
-  icon = Image.open('kolala.jpeg')
+  icon_pil = Image.open('plugins/youtube/icon.png')
+  icon_np = np.array(icon_pil)
   while True:
-   dp.setIcon(icon)
-   dp.updateScreen()
+   displayController.setIcon(icon_np)
+   displayController.updateScreen()
    #for j in range(155):
    # for i in range(LED_COUNT):
    #  strip.setPixelColor(i, Color(i, i, i))

@@ -4,10 +4,21 @@ import numpy as np
 class DisplayController:
 
     def __init__(self, display, height, width):
+        self.charDict = {'A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z'}
+        self.charNum = {'0','1','2','3','4','5','6','7','8','9'}
+        self.charSigns = {'.',',','?','!','@','_','*','#','$','%','&','(',')','+','-','/',':',';','<','=','>','[',']','^','°','{','|','}','na','\'}
+        self.offsetChars = [1,1]
+        self.offsetNums = [14,1]
+
         self.display = display
         self.height = height
         self.width = width
         self.displayArray = np.zeros((height, width, 3), dtype=np.uint8)
+
+        self.font_pil = Image.open('font.png') 
+        self.font_np = np.array(font_pil)
+        self.font_size = [5,3]
+        self.font_offset = [1,1]
 
     def setPixel(self,x,y,color):
         self.displayArray[x,y] = color
